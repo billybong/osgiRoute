@@ -1,0 +1,23 @@
+1: Do mvn clean install on ~/training_and_books/redpill_training/Camel_Breakfast_seminarium/osgiRoute/osgiroute
+
+2: Install with osgi:install -s mvn:se.rl/osgiroute
+
+osgi:list -> not started / log:display
+
+mvn install services
+osgi:install -s mvn:se.rl/services
+osgi:list / ls [bundlenr] för att visa på tjänsten
+
+
+
+config:list -> accountingProperties
+
+config:edit accountingProperties
+config:propset timer.. 1000
+config:update
+
+osgi:list -> camel route
+osgi:refresh [BID]
+
+
+

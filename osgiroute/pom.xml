@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>se.rl</groupId>
+  <artifactId>osgiroute</artifactId>
+  <packaging>bundle</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>Redpill-Linpro Camel OSGi client</name>
+  <url>http://www.redpill-linpro.com</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-blueprint</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>se.rl</groupId>
+	  <artifactId>services</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+
+      <!-- to generate the MANIFEST-FILE of the bundle -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.3.4</version>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>osgiroute</Bundle-SymbolicName>
+            <Private-Package>se.rl.osgiroute.*</Private-Package>
+            <Import-Package>*,org.apache.camel.osgi</Import-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+</project>
