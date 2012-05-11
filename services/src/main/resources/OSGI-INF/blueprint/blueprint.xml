@@ -2,11 +2,21 @@
 
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
        xsi:schemaLocation="
        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-  <service id="paymentService" interface="se.rl.services.api.PaymentService">
-  	<bean class="se.rl.services.impl.PaymentConductor"/>
+  <service id="pongService" interface="se.rl.pong.api.PongService">
+  	<bean class="se.rl.pong.impl.PongImpl">
+  		<argument value="${response}"/>
+  	</bean>
   </service>
+
+  <!-- Show of OSGI blueprint property placeholder -->
+  <cm:property-placeholder id="blueprint.placeholder" persistent-id="pong.properties">
+  	  <cm:default-properties>
+          <cm:property name="response" value="PONG"/>
+      </cm:default-properties>
+  </cm:property-placeholder>
 
 </blueprint>

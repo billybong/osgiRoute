@@ -3,8 +3,8 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>se.rl</groupId>
-  <artifactId>services</artifactId>
+  <groupId>se.rl.osgi</groupId>
+  <artifactId>pong</artifactId>
   <packaging>bundle</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>Redpill-Linpro OSGi Service</name>
@@ -15,6 +15,7 @@
   		<groupId>log4j</groupId>
   		<artifactId>log4j</artifactId>
   		<version>1.2.14</version>
+  		<scope>provided</scope>
   	</dependency>
   </dependencies>
 
@@ -41,9 +42,9 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>osgiservices</Bundle-SymbolicName>
-            <Private-Package>se.rl.services.impl*</Private-Package>
+            <Private-Package>se.rl.pong.impl*</Private-Package>
             <Import-Package>*</Import-Package>
-            <Export-Package>se.rl.services.api*</Export-Package>
+            <Export-Package>se.rl.pong.api*</Export-Package>
           </instructions>
         </configuration>
       </plugin>

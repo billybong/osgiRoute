@@ -3,8 +3,8 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>se.rl</groupId>
-  <artifactId>osgiroute</artifactId>
+  <groupId>se.rl.osgi</groupId>
+  <artifactId>ping</artifactId>
   <packaging>bundle</packaging>
   <version>0.0.1-SNAPSHOT</version>
 
@@ -23,8 +23,8 @@
       <version>2.9.0</version>
     </dependency>
     <dependency>
-      <groupId>se.rl</groupId>
-	  <artifactId>services</artifactId>
+      <groupId>se.rl.osgi</groupId>
+	  <artifactId>pong</artifactId>
 	  <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
@@ -52,7 +52,7 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>osgiroute</Bundle-SymbolicName>
-            <Private-Package>se.rl.osgiroute.*</Private-Package>
+            <Private-Package>se.rl.ping.*</Private-Package>
             <Import-Package>*,org.apache.camel.osgi</Import-Package>
           </instructions>
         </configuration>

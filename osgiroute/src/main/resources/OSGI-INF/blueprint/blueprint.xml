@@ -8,21 +8,27 @@
        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-  <camelContext id="accountingFrontContext" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
-    <route id="accountingFrontEnd">
-      <from uri="timer://triggerAccounting?fixedRate=true&amp;period={{timerPeriod}}"/>
-      <log message="Triggered..."/>
-      <bean ref="paymentService" method="conductPayment(100, 'SomeCustomer')"/>
+  <camelContext id="pingContext" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+    <route id="pingPongRoute">
+      <from uri="timer://triggerPingPong?fixedRate=true&amp;period={{timer}}"/>
+      <transform>
+      	<constant>Ping</constant>
+      </transform>
+      <log message="${body}"/>
+      <bean ref="pongService"/>
+      <log message="${body}"/>
+      <to uri="{{endpoint}}"/>
     </route>
   </camelContext>
 
   <!-- Reference to an OSGi service that implements the PaymentService interface -->
-  <reference id="paymentService" interface="se.rl.services.api.PaymentService"/>
+  <reference id="pongService" interface="se.rl.pong.api.PongService"/>
   
   <!-- Show of OSGI blueprint property placeholder -->
-  <cm:property-placeholder id="blueprint.placeholder" persistent-id="accountingProperties">
+  <cm:property-placeholder id="blueprint.placeholder" persistent-id="ping.properties">
   	  <cm:default-properties>
-          <cm:property name="timerPeriod" value="5000"/>
+          <cm:property name="timer" value="5000"/>
+          <cm:property name="endpoint" value="file:/tmp/pingpong?fileName=pingpong.txt&amp;fileExist=Append"/>
       </cm:default-properties>
   </cm:property-placeholder>
   

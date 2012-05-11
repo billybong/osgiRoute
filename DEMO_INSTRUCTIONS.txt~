@@ -1,23 +1,33 @@
 1: Do mvn clean install on ~/training_and_books/redpill_training/Camel_Breakfast_seminarium/osgiRoute/osgiroute
 
-2: Install with osgi:install -s mvn:se.rl/osgiroute
+2: Install with osgi:install -s mvn:se.rl.osgi/ping
 
+3: Show that the route is not started
 osgi:list -> not started / log:display
 
 mvn install services
-osgi:install -s mvn:se.rl/services
+osgi:install -s mvn:se.rl.osgi/pong
 osgi:list / ls [bundlenr] för att visa på tjänsten
+osgi:start -> camel bundle
 
+4: Show that route has started ping-ponging
+log:tail
 
-
-config:list -> accountingProperties
-
-config:edit accountingProperties
-config:propset timer.. 1000
+5: Edit the pong response
+config:edit pong.properties
+config:propset response PANG
 config:update
 
-osgi:list -> camel route
-osgi:refresh [BID]
+osgi:refresh -> pong service
+
+log:tail
+
+6: Edit the endpoint that ping camel route sends to
+config:edit ping.properties
+config:propset endpoint activemq:pingpong
+config:update
+
+osgi:refresh -> camel client
 
 
 
