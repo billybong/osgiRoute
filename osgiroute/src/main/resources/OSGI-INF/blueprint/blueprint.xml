@@ -21,7 +21,7 @@
     </route>
   </camelContext>
 
-  <!-- Reference to an OSGi service that implements the PaymentService interface -->
+  <!-- Reference to an OSGi service that implements the PongService interface -->
   <reference id="pongService" interface="se.rl.pong.api.PongService"/>
   
   <!-- Show of OSGI blueprint property placeholder -->
