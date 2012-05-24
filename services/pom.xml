@@ -41,7 +41,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>osgiservices</Bundle-SymbolicName>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Private-Package>se.rl.pong.impl*</Private-Package>
             <Import-Package>*</Import-Package>
             <Export-Package>se.rl.pong.api*</Export-Package>

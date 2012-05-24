@@ -14,7 +14,7 @@ osgi:start -> camel bundle
 log:tail
 
 5: Edit the pong response
-config:edit pong.properties
+config:edit se.rl.pong
 config:propset response PANG
 config:update
 
@@ -23,7 +23,7 @@ osgi:refresh -> pong service
 log:tail
 
 6: Edit the endpoint that ping camel route sends to
-config:edit ping.properties
+config:edit se.rl.ping
 config:propset endpoint activemq:pingpong
 config:update
 

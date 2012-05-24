@@ -16,16 +16,19 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
       <version>2.9.0</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-blueprint</artifactId>
       <version>2.9.0</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>se.rl.osgi</groupId>
 	  <artifactId>pong</artifactId>
 	  <version>0.0.1-SNAPSHOT</version>
+	  <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -51,7 +54,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>osgiroute</Bundle-SymbolicName>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Private-Package>se.rl.ping.*</Private-Package>
             <Import-Package>*,org.apache.camel.osgi</Import-Package>
           </instructions>

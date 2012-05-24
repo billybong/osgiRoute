@@ -13,7 +13,7 @@
   </service>
 
   <!-- Show of OSGI blueprint property placeholder -->
-  <cm:property-placeholder id="blueprint.placeholder" persistent-id="pong.properties">
+  <cm:property-placeholder id="blueprint.placeholder" persistent-id="se.rl.pong">
   	  <cm:default-properties>
           <cm:property name="response" value="PONG"/>
       </cm:default-properties>

@@ -11,8 +11,7 @@ public class PongImpl implements PongService {
 	}
 
 	@Override
-	public String bounceBack(String s) {
-		return s + ", " + response;
+	public String bounceBack(String request) {
+		return String.format("%s , %s", request, response);
 	}
-
 }
